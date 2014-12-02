@@ -1,0 +1,38 @@
+{
+  "name": "strider-cucumber",
+  "version": "1.0.0",
+  "description": "plugin for run cucumber test suite",
+  "main": "webapp.js",
+  "scripts": {
+    "test": "mocha -R spec --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitwit/strider-template.git"
+  },
+  "keywords": [
+    "strider",
+    "plugin",
+    "template",
+    "cucumber"
+  ],
+  "author": "Jesus Garcia <garciatjm@gmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "strider": {
+    "type": "job",
+    "id": "strider-cucumber",
+    "title": "Cucumber custom",
+    "worker": "worker.js",
+    "webapp": "webapp.js",
+    "icon": "icon.png",
+    "config": {
+      "controller": "StriderCucumberCtrl"
+    }
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.20.1",
+    "sinon-chai": "^2.5.0"
+  }
+}
