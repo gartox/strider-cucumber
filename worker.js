@@ -11,9 +11,8 @@ module.exports = {
 
     if (config.use_custom) {
       ret.prepare =  cloneCucumberRepo(config, done)      
-      ret.path = [path.join(context.dataDir, 'cucumber-sample')]
-      ret.test =    shellCommand2('cd cucumber-sample\ncucumber')
-      ret.cleanup= 'rm -rf cucumber-sample'  
+      ret.test =    shellCommand2('cucumber')
+      //ret.cleanup= 'rm -rf .'  
     } else {
       ret.test =    shellCommand2('cucumber')
     }
@@ -41,7 +40,7 @@ function cloneCucumberRepo(config, done) {
   if (!config.repository_cucumber){
     return done(null, true);
   }
-  var command = "git clone " + config.repository_cucumber +" --recursive"
+  var command = "rm -rf ..?* .[!.]* * \n ls -a \n git clone --recursive " + config.repository_cucumber + " ."
   var normalizedCommand = command.replace(/#[^\n]*/g, '').trim();
   
   if (!normalizedCommand.length) {
